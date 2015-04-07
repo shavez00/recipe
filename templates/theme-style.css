@@ -1,0 +1,469 @@
+/*
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+*/
+/* reset */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0;padding:0;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/* start editing from here */
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+.underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*end reset*/
+html, body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 100%;
+    background-color: #FFF;
+    background-size: cover;
+    background-image: url(../images/Rustic.jpg);
+}
+
+/*------start-features-----*/
+.features{
+	padding: 20px 10px 0 10px;
+	text-align: center;
+}
+
+
+/*added by me*/
+body, html {height: 100%;}
+#outer {height: 100%; overflow: visible; position: relative; width: 100%; background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/Food.jpg);}
+#outer[id] {display: table; position: static;}
+
+#middle {position: absolute; top: 50%;} /* for quirk explorer only*/
+#middle[id] {display: table-cell; vertical-align: middle; width: 100%; position: static;}
+
+#inner {position: relative; top: -50%; width: 350px; margin-left: auto; margin-right: auto;} /* for quirk explorer only */
+/* optional: #inner[id] {position: static;} */
+            
+.buttonHolder {test-align: center;}
+   
+#tfheader{
+    background-color:#c3dfef;
+}
+
+#tfnewsearch{
+    float:right;
+    padding:20px;
+    border:0px solid #dbdbdb; /*added so that older browsers don't add a border*/
+}
+
+.tftextinput{
+    margin: 0;
+    padding: 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:14px;
+    border:1px solid #0076a3; border-right:0px;
+    border-top-left-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+}
+
+.tfbutton {
+    margin: 0;
+    padding: 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:14px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: solid 1px #0076a3; border-right:0px; border-left:0px;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+    background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+}
+
+.tfbutton:hover {
+    text-decoration: none;
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+    background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+}
+
+/* Fixes submit button height problem in Firefox */
+.tfbutton::-moz-focus-inner {
+    border: 0;
+}
+
+.tfclear{
+    clear:both;
+}
+            
+.arrow_box {
+    position: relative;
+    right: 5px;
+    background: #0095cd;
+    border: 0px solid #0095cd;
+}
+
+.arrow_box:after, .arrow_box:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(0, 149, 205, 0);
+    border-right-color: #0095cd;
+    border-width: 13px;
+    margin-top: -13px;
+}
+
+.arrow_box:before {
+    border-color: rgba(0, 149, 205, 0);
+    border-right-color: #0095cd;
+    border-width: 10px;
+    margin-top: -10px;
+}
+
+/*trial of responsive design*/
+.Center {    
+    display: inline-block;
+	width: 300px;
+	position: relative; margin-left: auto; margin-right: auto;
+    background: #FFFFFF;
+    text-align: center;
+    margin: 1em;
+}
+
+.a_results {
+    color: #000000;
+    background: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+}	
+
+.white {
+    background: #FFFFFF;
+}
+
+#wrap {
+    width:100%;
+    margin:0 auto;
+}
+
+#main {
+    position: relative;
+    left: 60px;
+    float:right;
+    width:90%;
+}
+
+#sidebar {
+    position: fixed;
+    top: 50px;
+    float:left;
+    width:30px;
+}
+
+#footer {
+    clear:both;
+    background:#cc9;
+}
+
+.button {
+    width: 50px;
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+    padding: 0 20px;
+    text-align: center;
+    text-decoration: none;
+    font: bold 12px/25px Arial, sans-serif;
+    
+    text-shadow: 1px 1px 1px rgba(255,255,255, .22);     
+    
+    -webkit-border-radius: 30px;    
+    -moz-border-radius: 30px;    
+    border-radius: 30px;     
+    
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);    
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);    
+    box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);     
+    -webkit-transition: all 0.15s ease;    
+    -moz-transition: all 0.15s ease;    
+    -o-transition: all 0.15s ease;    
+    -ms-transition: all 0.15s ease;    
+    transition: all 0.15s ease;
+    background: #ffffff;
+}
+
+.button:hover {    
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,.29), inset 0px 0px 2px rgba(0,0,0, .5);    
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0,.29), inset 0px 0px 2px rgba(0,0,0, .5);    
+    box-shadow: 1px 1px 1px rgba(0,0,0,.29), inset 0px 0px 2px rgba(0,0,0, .5);
+}
+
+.button:active {    
+    -webkit-box-shadow: inset 0px 0px 3px rgba(0,0,0, .8);    
+    -moz-box-shadow: inset 0px 0px 3px rgba(0,0,0, .8);    
+    box-shadow: inset 0px 0px 3px rgba(0,0,0, .8);
+}
+
+#nav{    
+	display: none;
+	width: 0px;
+}    
+
+#nav > a    {        
+	display: none;    
+}    
+	
+#nav li    {        
+	position: relative;    
+}     
+
+/* first level */     
+#nav > ul    {        
+	height: 3.75em;    
+}        
+
+#nav > ul > li        {            
+	width: 25%;            
+	height: 100%;            
+	float: left;        
+}     
+
+/* second level */     
+#nav li ul    {        
+	display: none;        
+	position: absolute;        
+	top: 100%;    
+}        
+
+#nav li:hover ul        {            
+	display: none;        
+}
+
+
+#submit {
+width: 90px;
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+    padding: 0 20px;
+    text-align: center;
+    text-decoration: none;
+    font: bold 12px/25px Arial, sans-serif;
+    
+    text-shadow: 1px 1px 1px rgba(255,255,255, .22);     
+    
+    -webkit-border-radius: 30px;    
+    -moz-border-radius: 30px;    
+    border-radius: 30px;     
+    
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);    
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);    
+    box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);     
+    -webkit-transition: all 0.15s ease;    
+    -moz-transition: all 0.15s ease;    
+    -o-transition: all 0.15s ease;    
+    -ms-transition: all 0.15s ease;    
+    transition: all 0.15s ease;
+    background: #ffffff;
+}
+
+#index {    
+    display: inline-block;
+	width: 300px;
+	position: relative; margin-left: auto; margin-right: auto;
+    background: #FFFFFF;
+padding-left: 15px;
+padding-right: 15px;
+text-align: justify;
+    margin: 1em;
+border-radius: 20px;
+text-decoration: none;
+    font: bold 12px/25px Arial, Helvetica, sans-serif;;
+text-shadow: 1px 1px 1px rgba(255,255,255, .22); 
+
+-webkit-box-shadow: 5px 5px 5px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);    
+    -moz-box-shadow: 5px 5px 5px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);    
+    box-shadow: 5px 5px 5px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);     
+    -webkit-transition: all 0.15s ease;    
+    -moz-transition: all 0.15s ease;    
+    -o-transition: all 0.15s ease;    
+    -ms-transition: all 0.15s ease;    
+    transition: all 0.15s ease;
+}
+
+input[type="submit"] { 
+    border:0px; 
+    text-decoration:none; 
+    font-family:helvetica; 
+}
+
+input[type="button"] { 
+    border:0px; 
+    text-decoration:none; 
+    font-family:helvetica; 
+}
+
+#login {
+	display: inline-block;
+	width: 100%;
+	text-align: right;
+	position: relative;
+	background: #ffffff;
+	
+}
+
+@media (max-width: 400px) {
+    .Center {    
+	width: 300px;
+	position: relative; margin-left: auto; margin-right: auto;
+        background: #FFFFFF;
+        text-align: center;
+        margin: 1em;
+    }
+    
+    #wrap {
+        width:100%;
+        margin:0 auto;
+    }
+    
+    #main {
+        position: relative;
+        left: 0px;
+        float:right;
+        width:auto;
+    }
+    
+    #sidebar {
+        width:0px;
+        display: none;
+    }
+    .button {
+        width: 40px;
+    display: inline-block;
+    position: relative;
+    left:10px;
+    margin: 0px;
+    padding: 0 20px;
+    text-align: center;
+    text-decoration: none;
+    font: bold 12px/25px Arial, sans-serif;
+    
+    text-shadow: 0px 0px 0px rgba(255,255,255, .22);     
+    
+    -webkit-border-radius: 0px;    
+    -moz-border-radius: 0px;    
+    border-radius: 0px;     
+    
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);    
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);    
+    box-shadow: 0px 0px 0px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);     
+    -webkit-transition: all 0.15s ease;    
+    -moz-transition: all 0.15s ease;    
+    -o-transition: all 0.15s ease;    
+    -ms-transition: all 0.15s ease;    
+    transition: all 0.15s ease;
+    background: #ffffff;
+    z-index: 1;
+    }
+    
+    #nav {
+        display: inline-block;
+        background: #FFFFFF;
+        visibility: visible;
+        position: fixed;
+top: 15px;
+right: 5%;
+width: 20px;
+        z-index: 1;
+    }     
+    
+    #nav > a {        
+    }        
+    
+    #nav:not(:target) > a:first-of-type,        
+    #nav:target > a:last-of-type {            
+        display: block;        
+    }     
+    
+    /* first level */     
+    #nav > ul {        
+        height: auto;        
+        display: none;        
+        position: absolute;        
+        left: 0;        
+        right: 10px;
+        background: #ffffff;
+    }        
+    
+    #nav:target > ul {            
+        display: block;        
+    }        
+    
+    #nav > ul > li {            
+        width: 100%;            
+        float: none;
+        direction: rtl;
+    }     
+    
+    /* second level */     
+    #nav li ul {        
+        position: static; 
+    }   
+
+    #submit {
+        width: 80px;
+    display: inline-block;
+    position: relative;
+    left:10px;
+    margin: 0px;
+    padding: 0 20px;
+    text-align: center;
+    text-decoration: none;
+    font: bold 12px/25px Arial, sans-serif;
+    
+    text-shadow: 0px 0px 0px rgba(255,255,255, .22);     
+    
+    -webkit-border-radius: 0px;    
+    -moz-border-radius: 0px;    
+    border-radius: 0px;     
+    
+    -webkit-box-shadow: 0px 0px 0px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);    
+    -moz-box-shadow: 0px 0px 0px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);    
+    box-shadow: 0px 0px 0px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);     
+    -webkit-transition: all 0.15s ease;    
+    -moz-transition: all 0.15s ease;    
+    -o-transition: all 0.15s ease;    
+    -ms-transition: all 0.15s ease;    
+    transition: all 0.15s ease;
+    background: #ffffff;
+    z-index: 1;
+    }
+
+		input[type="submit"] { 
+		border:0px; 
+		text-decoration:none; 
+		font-family:helvetica; 
+		}
+}
