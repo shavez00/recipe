@@ -13,6 +13,7 @@
 */
 set_include_path( get_include_path().":/var/www/html/recipe/"); //Need to set include path to include current directory
 set_include_path( get_include_path().":/var/www/html/recipe/class/"); //Need to set include path to include class directory
+set_include_path( get_include_path().":/var/www/html/recipe/interfaces/"); //Need to set include path to include interface directory
 define ("PATH_SEPERATOR", ":");  //Need to define PATH_SEPERATOR to eliminate notice message about constant not being defined.
 
 function autoload($class) 
@@ -23,9 +24,9 @@ function autoload($class)
     foreach ($paths as $path) {
 		    $combined = $path.DIRECTORY_SEPARATOR.$file;
 		    if (file_exists($combined)) {
-			    //echo '<br>'.$combined.'<br>'; //Troubleshooting code to echo out the file that's being loaded
-			    include($combined);
-			    return;
+			      //echo '<br>'.$combined.'<br>'; //Troubleshooting code to echo out the file that's being loaded
+			      include($combined);
+			      return;
         }
     }
     throw new Exception("{$class} not found");

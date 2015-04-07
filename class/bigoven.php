@@ -9,13 +9,13 @@
 * The class contains zero properties: 
 *
 * The class contains three methods:
-* + getRecipe() - recieves a varible and inserts the varible into the API query 
- * string then transforms the JSON response into an array and returns it.
- * + nextRecipe($Recipe, $from) - recieves two varibles and inserts the varibles 
- * into the API query string then transforms the JSON response into an array 
- * and returns it.
- * - createRecipeResultsArray($recipeArray) - parses the recieved array from the
- * getRecipe method and returns a normalized array
+* + getRecipe($Recipe) - recieves a varible and inserts the varible into the API query 
+* string then transforms the JSON response into an array and returns it.
+* + nextRecipe($Recipe, $from) - recieves two varibles and inserts the varibles 
+* into the API query string then transforms the JSON response into an array 
+* and returns it.
+* - createRecipeResultsArray($recipeArray) - parses the recieved array from the
+* getRecipe method and returns a normalized array
 */
 
 class Bigoven implements DatabaseInterface 
@@ -45,8 +45,8 @@ class Bigoven implements DatabaseInterface
         //var_dump($Recipe_array);
         return $Results_array;
        // print "<pre>";
-	//print_r($Results_array);
-	//print "</pre>";
+       //print_r($Results_array);
+        //print "</pre>";
         //var_dump($Recipe_array['ResultCount']); //print out array returned fortroubleshooting
     }
 
@@ -76,14 +76,15 @@ class Bigoven implements DatabaseInterface
         //var_dump($Recipe_array);
         return $Results_array;
         // print "<pre>";
-	//print_r($Recipe_array);
-	//print "</pre>";
+	      //print_r($Recipe_array);
+	      //print "</pre>";
         //var_dump($Recipe_array['Results']); //print out array returned fortroubleshooting
     }
     
     private function createRecipeResultsArray($recipeArray) 
     {
-        foreach ($recipeArray['Results'] as $recipe) {
+        foreach ($recipeArray['Results'] as $recipe) 
+        {
             $bigovenRecipeURL[] = $recipe['WebURL'];
             $transformedURL = substr($recipe['ImageURL'], 33);
             $bigovenRecipeImageURL[] = "http://images.bigoven.com/image/upload/t_recipe-256/" . $transformedURL;
@@ -91,7 +92,7 @@ class Bigoven implements DatabaseInterface
             $bigovenRecipeID[] = $recipe['RecipeID'];
             $bigovenRecipeTitle[] = $recipe['Title'];
         }
-	$numOfBigovenResults = $recipeArray['ResultCount'];
-	return array("RecipeURL" => $bigovenRecipeURL, "RecipeImageURL" => $bigovenRecipeImageURL, "RecipeID" => $bigovenRecipeID, "RecipeTitle" => $bigovenRecipeTitle, "numOfResults" => $numOfBigovenResults);
+    $numOfBigovenResults = $recipeArray['ResultCount'];
+    return array("RecipeURL" => $bigovenRecipeURL, "RecipeImageURL" => $bigovenRecipeImageURL, "RecipeID" => $bigovenRecipeID, "RecipeTitle" => $bigovenRecipeTitle, "numOfResults" => $numOfBigovenResults);
     }
 }

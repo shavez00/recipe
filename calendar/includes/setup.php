@@ -17,6 +17,10 @@
 
 /*
    This file sets up the global variables to be used later
+ * called by index
+ * creates phpcdb object from class phpcdatabase
+* creates action varible from $_GET action property
+*  calls calendar and phpcdatabase
 */
 
 if ( !defined('IN_PHPC') ) {

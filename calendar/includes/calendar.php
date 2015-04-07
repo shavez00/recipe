@@ -17,6 +17,8 @@
 
 /*
    this file contains all the re-usable functions for the calendar
+ * Called by index.php and setup.php
+ * calls Gettext_PHP, html, and util
 */
 
 if ( !defined('IN_PHPC') ) {

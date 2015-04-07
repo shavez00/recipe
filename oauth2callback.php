@@ -39,9 +39,13 @@ $access_token = $Response_array['access_token'];
 //var_dump($Response_array); //for troubleshooting
 //echo $access_token; //for troubleshooting
 
-echo '<div id="main"><div class="Center"><form action="google_schedule.php" target="_blank">
-            <input type="text" name="user">gMail account<br>
-            <input type="text" name="date">Day to schedule<br>
-            <input type="hidden" name="access-token" value="' . $access_token . '">
-            <input type="submit">
-        </form></div></div>';
+echo '<div id="main">
+        <div class="Center">
+            <form action="google_schedule.php" target="_blank">
+                Please enter a date in MM-DD format.<br>
+                <input type="text" name="date">Day to schedule<br>
+                <input type="hidden" name="access-token" value="' . $access_token . '">
+                <input type="submit">
+            </form>
+        </div>
+    </div>';

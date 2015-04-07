@@ -79,6 +79,7 @@ if(!isset($phpc_jq_file))
 
 /*
  * Do not modify anything under this point
+ * calls calendar and setup
  */
 define('IN_PHPC', true);
 

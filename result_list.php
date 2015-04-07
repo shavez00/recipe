@@ -10,7 +10,7 @@ $Recipe = validator::testInput($_GET['Recipe']);
 
 $from = @validator::testInput($_GET['from']);
 
-$results = new results();
+$results = new Results();
 
 $from = $results->searchResultValidation($page, $from, $Recipe);
 
@@ -25,38 +25,43 @@ include('templates/header.php');
  */
 
 echo '
-	<link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-	<form action="google_authenticate.php"><div class="features white vertical-top"><h1>Recipe List</h1></div>
+<form action="google_authenticate.php">
     <nav id="nav" role="navigation">
-            <a href="#nav" title="Show navigation"><img src="images/mobile-menu-icon.png" width="20"></a>    
-            <a href="#" title="Hide navigation"><img src="images/mobile-menu-icon.png" width="20"></a>    
-            <ul>        
-                <li><a href="index.php" class="button">Search</a></li>        
-                <li><input value="Schedule" type="submit" id="submit" /></li>
-								<li><a href="#" class="button">Save</a></li>
-								<li><a href="result_list.php?page=next&Recipe=' . $Recipe . '&from=' . $from . '" class="button">More</a></li>';
-								 if ( $from > 1) { 
-            				echo '<li><a href="result_list.php?page=previous&Recipe=' . $Recipe . '&from=' . $from . '" class="button">Previous</a></li>';
-        					} 
-	echo '</ul>
-        </nav>
- <div id="sidebar">
-		<a href="index.php" class="button">Search</a>
-		<input type="submit" id="submit" value="Schedule" />
-		<a href="#" class="button">Save</a><a href="result_list.php?page=next&Recipe=' . $Recipe . '&from=' . $from . '" class="button">More</a>';
-if ( $from > 1) { 
-            echo '<a href="result_list.php?page=previous&Recipe=' . $Recipe . '&from=' . $from . '" class="button">Previous</a>';
-        } 
-echo '</div><div id="main">';
+        <a href="#nav" title="Show navigation"><img src="images/mobile-menu-icon.png" width="20"></a>    
+        <a href="#" title="Hide navigation"><img src="images/mobile-menu-icon.png" width="20"></a>    
+        <ul>        
+            <li><a href="index.php" class="button">Search</a></li>        
+            <li><input value="Schedule" type="submit" id="submit" /></li>
+            <li><a href="#" class="button">Save</a></li>
+            <li><a href="result_list.php?page=next&Recipe=' . $Recipe . '&from=' . $from . '" class="button">More</a></li>';
+if ( $from > 1) 
+{ 
+    echo '<li><a href="result_list.php?page=previous&Recipe=' . $Recipe . '&from=' . $from . '" class="button">Previous</a></li>';
+} 
+echo '
+        </ul>
+    </nav>
+    <div id="sidebar">
+        <a href="index.php" class="button">Search</a>
+        <input type="submit" id="submit" value="Schedule" />
+        <a href="#" class="button">Save</a>
+        <a href="result_list.php?page=next&Recipe=' . $Recipe . '&from=' . $from . '" class="button">More</a>';
+if ( $from > 1) 
+{ 
+    echo '<a href="result_list.php?page=previous&Recipe=' . $Recipe . '&from=' . $from . '" class="button">Previous</a>';
+} 
+echo '</div>
+    <div id="main">';
 
-for ($i = 0; $i < count($finalRecipeArray['RecipeID']); $i++) {
-        echo '<div class="Center"><a href=' . $finalRecipeArray['RecipeURL'][$i] . ' target="_blank"><img src=' . $finalRecipeArray['RecipeImageURL'][$i] . ' width="300">';
-        echo '<input type="radio" name="id" value="' . $finalRecipeArray['RecipeID'][$i] . ',' .  $finalRecipeArray['RecipeTitle'][$i] . ',' . $finalRecipeArray['RecipeURL'][$i] . '"><a class="a_results"  href=' . $finalRecipeArray['RecipeURL'][$i] . ' target="_blank">' . $finalRecipeArray['RecipeTitle'][$i] . '</a>';
-				echo '</div>';
-	}
-					echo '</div>
-			</form>
-	</body>
+for ($i = 0; $i < count($finalRecipeArray['RecipeID']); $i++) 
+{
+    echo '<div class="Center"><a href=' . $finalRecipeArray['RecipeURL'][$i] . ' target="_blank"><img src=' . $finalRecipeArray['RecipeImageURL'][$i] . ' width="300">';
+    echo '<input type="radio" name="id" value="' . $finalRecipeArray['RecipeID'][$i] . ',' .  $finalRecipeArray['RecipeTitle'][$i] . ',' . $finalRecipeArray['RecipeURL'][$i] . '"><a class="a_results"  href=' . $finalRecipeArray['RecipeURL'][$i] . ' target="_blank">' . $finalRecipeArray['RecipeTitle'][$i] . '</a>';
+    echo '</div>';
+}
+echo '</div>
+</form>
+    </body>
 </html>';
 exit;
 

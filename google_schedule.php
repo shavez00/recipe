@@ -5,12 +5,14 @@
  * calls google calendar
  */
 require('core.php');
+include('templates/header.php');
 
-$user = validator::testInput($_GET['user']);
+//$user = validator::testInput($_GET['user']);
 $date = validator::testInput($_GET['date']);
 $access_token = $_GET['access-token'];
 
-$user = urlencode($user);
+$email = Users::getUserEmail($_SESSION['login_user']);
+
 $regex = "/((0[1-9]|1[0-2]))-(0[1-9]|[12][0-9]|3[01])$/";
 $dateCheck = preg_match($regex, $date);
 //echo $dateCheck;
@@ -18,8 +20,7 @@ $dateCheck = preg_match($regex, $date);
 if ($dateCheck == 0) {
     echo '<form action="">
             Please enter a date in MM-DD format.<br>
-            <input type="text" name="user">GMail account<br>
-            <input type="test" name="date">Day to schedule<br>
+            <input type="text" name="date">Day to schedule<br>
             <input type="submit">
         </form>';
 } else {
@@ -30,11 +31,11 @@ if ($dateCheck == 0) {
 }
     //echo $finalEndDate . "<br>";
 
-    $url = 'https://www.googleapis.com/calendar/v3/calendars/' . $user . '/events?key={YOUR_API_KEY}';
+    $url = 'https://www.googleapis.com/calendar/v3/calendars/' . $email . '/events?key={YOUR_API_KEY}';
     
 $header = array(
     "Authorization: Bearer ". $access_token, 
-    "GET /calendar/v3/calendars/" . $user . "/events", 
+    "GET /calendar/v3/calendars/" . $email . "/events", 
     "HOST www.googleapis.com",
     "Content-Type: application/json"
 );
@@ -56,7 +57,7 @@ $event = array (
 print_r($header);
 print_r($event);
 print "</pre>";*/
- 
+
 $json_event = json_encode($event);
 
 $ch = curl_init( $url ); 

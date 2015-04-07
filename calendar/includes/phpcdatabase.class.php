@@ -14,6 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* called by setup
+ * calls phpccalendar, phpcevent, phpcoccurence, and phpcuser
+ */
 
 require_once("$phpc_includes_path/phpccalendar.class.php");
 require_once("$phpc_includes_path/phpcevent.class.php");

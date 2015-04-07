@@ -1,6 +1,40 @@
 <?php
+/*  Results class
+* + = public function/property
+* - = private function/property
+* x = proteced function/proptery
+*
+* The Results class takes an array of normalized results from the databases and combines
+* then into the _Stack property and returns this combined array
+* 
+* The class contains six properties: 
+* - _Stack - an array of results
+* - finalRecipeURL - an array of URLs to results
+* - finalRecipeImageURL - an array of URLs to recipe images
+* - finalRecipeID - an array of recipe IDs
+* - finalRecipeTitle - an array of recipe titles
+* - numOfResults - a counter to help with checking if there were any results
+*
+* The class contains six methods:
+* + finalRecipeArray() - parses the _Stack property and returns an array
+* - getRecipeArrayStack() - return the _Stack property
+* - addRecipeDatabase(array $recipeArray) - gets an array of results and
+* adds it to the _Stack property
+* + searchResultValidation($page, $from, $Recipe) - recieves three variables
+* performs a nullcheck to make sure the database is returning a result.  Based
+* upon that check it uses the addDatabase and nextDatabase methods to add
+* results to the _Stack.  It also has logic to check the variables and numOfResults
+* property and send error codes.
+* -  addDatabase(DatabaseInterface $recipeDatabase, $Recipe) - recieves an
+* object based on the databaseinterface interface and calls the addRecipeDatabase
+* method
+* - nextDatabase(DatabaseInterface $recipeDatabasr, $Recipe) -  recieves an
+* object based on the databaseinterface interface and calls the nextRecipeDatabase
+* method
+*/
 
-class results {
+class Results 
+{
     private $_Stack = [];
     
     private $finalRecipeURL = [];
@@ -13,7 +47,8 @@ class results {
     
     private $numOfResults;
     
-    public function finalRecipeArray() {
+    public function finalRecipeArray() 
+    {
         $recipeArray = $this->_Stack;
         foreach ($recipeArray as $recipeURL) {
             foreach ($recipeURL['RecipeURL'] as $final) {
@@ -41,18 +76,21 @@ class results {
         return array("RecipeURL" => $this->finalRecipeURL, "RecipeImageURL" => $this->finalRecipeImageURL, "RecipeID" => $this->finalRecipeID, "RecipeTitle" => $this->finalRecipeTitle);
     }
     
-    private function getRecipeArrayStack() {
+    private function getRecipeArrayStack() 
+	  {
         return $this->_Stack;
     }
     
-    private function addRecipeDatabase(array $recipeArray) {
+    private function addRecipeDatabase(array $recipeArray) 
+	  {
         if ($recipeArray['numOfResults'] != 0) {
             $this->numOfResults = $this->numOfResults + 1;
         }
         array_push($this->_Stack, $recipeArray);
     }
     
-    public function searchResultValidation($page, $from, $Recipe) {
+    public function searchResultValidation($page, $from, $Recipe) 
+	  {
         if ($page == 'next') {
             $from = $from + 1;
             $bigoven = new bigoven();
@@ -60,13 +98,7 @@ class results {
             if (empty($nullCheck['RecipeURL'])) {
                 $this->addDatabase(new edamam(), $Recipe);
                 $from = 1;
-                /**echo '<div id="fea" class="features">
-                    <div class="Center">No more results, please select a recipe or go to home and search different ingredients.
-                    </div>
-                    </div>
-                    </body>
-                    </html>';*/
-                    return $from;
+                return $from;
             }
             $this->nextDatabase(new bigoven(), $Recipe, $from);
         } elseif ($page == 'previous') {
@@ -100,11 +132,13 @@ class results {
         return $from;
     }
     
-    private function addDatabase(databaseInterface $recipeDatabase, $Recipe) {
+    private function addDatabase(DatabaseInterface $recipeDatabase, $Recipe) 
+	  {
         $this->addRecipeDatabase($recipeDatabase->getRecipe($Recipe));
     }
     
-    private function nextDatabase(databaseInterface $recipeDatabase, $Recipe, $from) {
+    private function nextDatabase(DatabaseInterface $recipeDatabase, $Recipe, $from)
+	  {
         $this->addRecipeDatabase($recipeDatabase->nextRecipe($Recipe, $from));
     }
 }

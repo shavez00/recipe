@@ -170,15 +170,17 @@ body, html {height: 100%;}
 
 #main {
     position: relative;
+    text-align: center;
     left: 60px;
-    float:right;
-    width:90%;
+    float:left;
+    width:85%;
 }
 
 #sidebar {
     position: fixed;
     top: 50px;
-    float:left;
+    left: 90%;
+    float: right;
     width:30px;
 }
 

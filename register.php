@@ -50,6 +50,11 @@ $bot_page = <<<EOT
                     <label for="email">Email : </label>
                     <input type="text" id="email" maxlength="30" required name="email" placeholder="email address"/>
 		</li>
+                <li>
+                    <label for="google">Do you want to schedule your meals on Google Calendar?</label><br>
+                    <label for="google">Yes : </label>
+                    <input type="checkbox" id="google" required name="google"/>
+		</li>
 		<li class="buttons">
                     <input type="submit" name="register" value="Register" />
                     <input type="button" name="cancel" value="Cancel" onclick="location.href='index.php'" />
