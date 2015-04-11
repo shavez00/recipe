@@ -53,7 +53,7 @@ $bot_page = <<<EOT
                 <li>
                     <label for="google">Do you want to schedule your meals on Google Calendar?</label><br>
                     <label for="google">Yes : </label>
-                    <input type="checkbox" id="google" required name="google"/>
+                    <input type="checkbox" name="calendar" value="google"/>
 		</li>
 		<li class="buttons">
                     <input type="submit" name="register" value="Register" />
