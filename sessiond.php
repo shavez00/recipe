@@ -12,7 +12,8 @@ echo $_SESSION['animal'];   // cat
 echo date('Y m d H:i:s', $_SESSION['time']);
 
 session_unset();
-setcookie('login_user', "", time() + 3600);
+unset($_COOKIE['login_user']);
+setcookie('login_user', "", time() - 3600);
 
 // You may want to use SID here, like we did in page1.php
 echo '<br /><a href="session.php">page 1</a>'; 

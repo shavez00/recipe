@@ -1,8 +1,17 @@
 <?php
 
-/* 
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
- */
+require('core.php');
+require('templates/header.php');
 
+$calendar = users::getUserCalendar($_SESSION['login_user']);
+
+switch ($calendar) {
+    case "goog":
+        header ("Location: google_authenticate.php");
+        break;
+    case "native":
+        header ("Location: calendar/");
+        break;
+     default:
+        echo "No calendar configured";
+}

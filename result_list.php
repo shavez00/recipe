@@ -23,9 +23,9 @@ include('templates/header.php');
  * uses $finalRecipeArray from results object
  * calls google_authenticate.php
  */
-
+//changed from google_authenticate to calendar_router to support multiple calendars
 echo '
-<form action="google_authenticate.php">
+<form action="calendar_router.php">
     <nav id="nav" role="navigation">
         <a href="#nav" title="Show navigation"><img src="images/mobile-menu-icon.png" width="20"></a>    
         <a href="#" title="Hide navigation"><img src="images/mobile-menu-icon.png" width="20"></a>    

@@ -170,5 +170,30 @@ class Users
             return $success;
         }
     }
+
+    public static function getUserCalendar($username) 
+	  {
+        //success variable will be used to return if the login was successful or not.
+        $success = false;
+        try {
+            //create our pdo object
+            $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+            //set how pdo will handle errors
+            $con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+            //this would be our query.
+            $sql = "SELECT * FROM users WHERE username = :username";
+            //prepare the statements
+            $stmt = $con->prepare( $sql );
+            //give value to named parameter :username
+            $stmt->bindValue( "username", $username, PDO::PARAM_STR );
+            $stmt->execute();
+            $calendar = $stmt->fetchColumn(8);
+            $con = null;
+            return $calendar;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return $success;
+        }
+    }
 }
 
