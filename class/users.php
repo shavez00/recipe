@@ -142,7 +142,7 @@ class Users
         $_SESSION['login_user']= $this->username;
         if ($this->keepli) {
             //setcookie for keeping user logged in between sessions
-            setcookie('login_user', $this->username, time() + 3600);
+            setcookie('login_user', $this->username, time() + (86400 * 30));
         }
     }
 
